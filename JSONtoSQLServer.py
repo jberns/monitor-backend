@@ -16,5 +16,6 @@ def send_to_server(input_dict):
     conn.commit()
     conn.close()
 
+
 def main():
-    
+    pass
