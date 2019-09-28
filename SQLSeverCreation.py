@@ -6,12 +6,12 @@ HeartLink
 """
 
 import sqlite3
-import datetime
 conn = sqlite3.connect("HeartLink_DB.db")
-"""conn.execute('''
+conn.execute('DROP TABLE FR_DATA;')
+conn.execute('''
     CREATE TABLE FR_DATA (
     UID      INTEGER,
-    TS       TIME,
+    TS       DATETIME,
     HR       INTEGER,
     BP_D     INTEGER,
     BP_S     INTEGER,
@@ -24,13 +24,8 @@ conn = sqlite3.connect("HeartLink_DB.db")
     LNAME    STRING,
     PRIMARY KEY (UID, TS)
 );
-''')"""
-TimeVar = str(datetime.datetime.now())
-conn.execute('''
-    INSERT INTO FR_DATA (UID, TS, FNAME, LNAME) VALUES (?, ?, ?, ?);
-''', (0, TimeVar[10:19], 'Jon', 'Smith'))
-conn.commit()
-conn.close()
+''')
+
 
 
 

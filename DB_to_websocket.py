@@ -20,8 +20,7 @@ def getDataSnapshot():
 
 
 
-    for record in conn.execute("SELECT " + str(teamSize) +
-                     " FROM (SELECT * FROM FR_DATA ORDER BY TS desc);"):
+    for record in conn.execute("SELECT * FROM FR_DATA ORDER BY TS desc LIMIT " + str(teamSize) + ";"):
         records.append(record)
 
     return records
