@@ -6,19 +6,40 @@ HeartLink
 """
 
 import sqlite3 as sql
+import json as js
 
 def getDataSnapshot():
-    teamSize = 1
+
+    teamSize = 5
+
+    records = []
 
     conn = sql.connect("HeartLink_DB.db")
 
     conn.cursor()
-    while True:
 
-        for record in conn.execute("SELECT " + str(teamSize) +
+
+
+    for record in conn.execute("SELECT " + str(teamSize) +
                      " FROM (SELECT * FROM FR_DATA ORDER BY TS desc);"):
-            print(record)
-        break
+        records.append(record)
+
+    return records
+
+def serializeDataSnapshot(records):
+
+    packet = []
+
+    for record in records:
+        packet.append(js.dumps(record))
+
+    print(packet)
+
+    return packet
+
+data = getDataSnapshot()
+serData = serializeDataSnapshot(data)
 
 
-getDataSnapshot()
+
+
