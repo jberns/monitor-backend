@@ -8,16 +8,17 @@ HeartLink
 import sqlite3 as sql
 
 def getDataSnapshot():
-    teamSize = 5
+    teamSize = 1
 
-    conn = sql.connect("HeartLink_DB")
+    conn = sql.connect("HeartLink_DB.db")
 
     conn.cursor()
     while True:
-        conn.execute("SELECT " + str(teamSize) +
-                     "FROM (SELECT * FROM FR_DATA ORDER BY TS desc)")
-        for record in conn:
-            print(record)
 
+        for record in conn.execute("SELECT " + str(teamSize) +
+                     " FROM (SELECT * FROM FR_DATA ORDER BY TS desc);"):
+            print(record)
         break
-    
+
+
+getDataSnapshot()
