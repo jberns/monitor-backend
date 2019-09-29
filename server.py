@@ -11,14 +11,11 @@ def getData():
     thread.start()
 
 app = Flask(__name__)
-CORS(app)
 app.config['SECRET_KEY'] = 'secret!'
 app.use_reloader=False
 socketio = SocketIO(app, cors_allowed_origins="*")
 
-@app.before_first_request
-def handle_startup():
-    getData()
+getData()
 
 @app.route("/")
 def home():

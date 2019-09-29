@@ -22,6 +22,7 @@ def send_to_server(conn, input_dict):
 
 def data_ingest():
     conn = sqlite3.connect("HeartLink_DB.db")
+    print("connected to database")
     i = 0
     list_o_dicts = json_to_python_dict.getDict('json_data.json')
     for curr_dict in list_o_dicts:
@@ -29,6 +30,6 @@ def data_ingest():
 
         send_to_server(conn, curr_dict)
         if i % 5 == 0:
-            time.sleep(0.5)
+            time.sleep(0.5)    
     conn.close()
 
