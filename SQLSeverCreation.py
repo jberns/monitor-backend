@@ -4,7 +4,7 @@ Tech2Protect Denver
 HeartLink
 9/28/19
 """
-
+"""
 import sqlite3
 conn = sqlite3.connect("HeartLink_DB.db")
 conn.execute('DROP TABLE FR_DATA;')
@@ -25,7 +25,7 @@ conn.execute('''
     PRIMARY KEY (UID, TS)
 );
 ''')
-
+"""
 
 
 

@@ -6,7 +6,8 @@ HeartLink
 """
 
 import sqlite3
-conn = sqlite3.connect("HeartLink_DB.db")
+
+"""
 testDict = {
     "UID": 1,
     "FNAME": "first 1",
@@ -21,9 +22,11 @@ testDict = {
     "ENV_TEMP": 200,
     "INT_TEMP": 100
   }
-
+"""
 
 def send_to_server(input_dict):
+    conn = sqlite3.connect("HeartLink_DB.db")
+
     conn.execute('''
         INSERT INTO FR_DATA (UID, TS, HR, BP_D, BP_S, LAT, LON, A_SUP, ENV_TEMP, INT_TEMP, FNAME, LNAME) VALUES 
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
@@ -32,10 +35,3 @@ def send_to_server(input_dict):
               input_dict['INT_TEMP'], input_dict['FNAME'], input_dict['LNAME']))
     conn.commit()
     conn.close()
-
-
-def main():
-    send_to_server(testDict)
-
-
-main()

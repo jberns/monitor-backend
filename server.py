@@ -16,7 +16,7 @@ def handle_request_crew_update():
     data = serializeDataSnapshot(getDataSnapshot())
     emit("crew-update", data)
 
-_thread.start_new_thread()
+#_thread.start_new_thread()
 
 
 if __name__ == '__main__':

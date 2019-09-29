@@ -2,7 +2,7 @@ import datetime, random
 
 data = []
 
-start_time = datetime.datetime(2019, 9, 28, 17, 29, 3, 191942)
+start_time = datetime.datetime.now()#(2019, 9, 28, 17, 29, 3, 191942)
 added_time = datetime.timedelta(0, 0, 500000)
 
 dict1 = {
@@ -81,17 +81,12 @@ data.append(dict2)
 data.append(dict3)
 data.append(dict4)
 data.append(dict5)
+tempDict = {}
 
 current_time = start_time + added_time
 for i in range(2000):
     
     current_time += added_time
-    #print(current_time)
-    #dict1 = {}
-    #dict2 = {}
-    #dict3 = {}
-    #dict4 = {}
-    #dict5 = {}
 
     dict1["TS"] = str(current_time)
     if i % 5 == 0:
@@ -101,7 +96,7 @@ for i in range(2000):
             dict1["HR"] += random.randrange(-1, 2)
         else:
             dict1["HR"] += random.randrange(-1, 1)
-        #print(dict1["HR"])
+
     if dict1["A_SUP"] > 0:
         if i % 20 == 0:
             dict1["A_SUP"] -= random.randrange(0, 2)
@@ -125,15 +120,21 @@ for i in range(2000):
             dict1["BP_S"] += random.randrange(-1, 2)
         else:
             dict1["BP_S"] += random.randrange(-1, 1)
-    #print(dict1)
-    data.append(dict1)
-    for dict in data:
-        if dict["UID"] == 1:
-            print(dict)
-    if i > 1:
-        break
-    if i < 20:
-        print(data)
+    tempDict["UID"] = dict1["UID"]
+    tempDict["FNAME"] = dict1["FNAME"]
+    tempDict["LNAME"] = dict1["LNAME"]
+    tempDict["TS"] = dict1["TS"]
+    tempDict["LAT"] = dict1["LAT"]
+    tempDict["LON"] = dict1["LON"]
+    tempDict["A_SUP"] = dict1["A_SUP"]
+    tempDict["ENV_TEMP"] = dict1["ENV_TEMP"]
+    tempDict["INT_TEMP"] = dict1["INT_TEMP"]
+    tempDict["HR"] = dict1["HR"]
+    tempDict["BP_D"] = dict1["BP_D"]
+    tempDict["BP_S"] = dict1["BP_S"]
+    data.append(tempDict)
+    tempDict = {}
+
     dict2["TS"] = str(current_time)
     if i % 1 == 0:
         if dict2["HR"] < 75:
@@ -165,7 +166,21 @@ for i in range(2000):
             dict2["BP_S"] += random.randrange(-1, 2)
         else:
             dict2["BP_S"] += random.randrange(-1, 1)
-    data.append(dict2)
+    tempDict["UID"] = dict2["UID"]
+    tempDict["FNAME"] = dict2["FNAME"]
+    tempDict["LNAME"] = dict2["LNAME"]
+    tempDict["TS"] = dict2["TS"]
+    tempDict["LAT"] = dict2["LAT"]
+    tempDict["LON"] = dict2["LON"]
+    tempDict["A_SUP"] = dict2["A_SUP"]
+    tempDict["ENV_TEMP"] = dict2["ENV_TEMP"]
+    tempDict["INT_TEMP"] = dict2["INT_TEMP"]
+    tempDict["HR"] = dict2["HR"]
+    tempDict["BP_D"] = dict2["BP_D"]
+    tempDict["BP_S"] = dict2["BP_S"]
+    data.append(tempDict)
+    tempDict = {}
+
 
     dict3["TS"] = str(current_time)
     if i % 1 == 0:
@@ -198,7 +213,21 @@ for i in range(2000):
             dict3["BP_S"] += random.randrange(-1, 2)
         else:
             dict3["BP_S"] += random.randrange(-1, 1)
-    data.append(dict3)
+    tempDict["UID"] = dict3["UID"]
+    tempDict["FNAME"] = dict3["FNAME"]
+    tempDict["LNAME"] = dict3["LNAME"]
+    tempDict["TS"] = dict3["TS"]
+    tempDict["LAT"] = dict3["LAT"]
+    tempDict["LON"] = dict3["LON"]
+    tempDict["A_SUP"] = dict3["A_SUP"]
+    tempDict["ENV_TEMP"] = dict3["ENV_TEMP"]
+    tempDict["INT_TEMP"] = dict3["INT_TEMP"]
+    tempDict["HR"] = dict3["HR"]
+    tempDict["BP_D"] = dict3["BP_D"]
+    tempDict["BP_S"] = dict3["BP_S"]
+    data.append(tempDict)
+    tempDict = {}
+
 
     dict4["TS"] = str(current_time)
     if i % 1 == 0:
@@ -231,7 +260,21 @@ for i in range(2000):
             dict4["BP_S"] += random.randrange(-1, 2)
         else:
             dict4["BP_S"] += random.randrange(-1, 1)
-    data.append(dict4)
+    tempDict["UID"] = dict4["UID"]
+    tempDict["FNAME"] = dict4["FNAME"]
+    tempDict["LNAME"] = dict4["LNAME"]
+    tempDict["TS"] = dict4["TS"]
+    tempDict["LAT"] = dict4["LAT"]
+    tempDict["LON"] = dict4["LON"]
+    tempDict["A_SUP"] = dict4["A_SUP"]
+    tempDict["ENV_TEMP"] = dict4["ENV_TEMP"]
+    tempDict["INT_TEMP"] = dict4["INT_TEMP"]
+    tempDict["HR"] = dict4["HR"]
+    tempDict["BP_D"] = dict4["BP_D"]
+    tempDict["BP_S"] = dict4["BP_S"]
+    data.append(tempDict)
+    tempDict = {}
+
 
     dict5["TS"] = str(current_time)
     if i % 1 == 0:
@@ -264,6 +307,20 @@ for i in range(2000):
             dict5["BP_S"] += random.randrange(-1, 2)
         else:
             dict5["BP_S"] += random.randrange(-1, 1)
-    data.append(dict5)
-
+    tempDict["UID"] = dict5["UID"]
+    tempDict["FNAME"] = dict5["FNAME"]
+    tempDict["LNAME"] = dict5["LNAME"]
+    tempDict["TS"] = dict5["TS"]
+    tempDict["LAT"] = dict5["LAT"]
+    tempDict["LON"] = dict5["LON"]
+    tempDict["A_SUP"] = dict5["A_SUP"]
+    tempDict["ENV_TEMP"] = dict5["ENV_TEMP"]
+    tempDict["INT_TEMP"] = dict5["INT_TEMP"]
+    tempDict["HR"] = dict5["HR"]
+    tempDict["BP_D"] = dict5["BP_D"]
+    tempDict["BP_S"] = dict5["BP_S"]
+    data.append(tempDict)
+    tempDict = {}
+for i in range(5):
+    data.remove(data[0])
 
