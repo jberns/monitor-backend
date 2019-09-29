@@ -2,11 +2,14 @@ import datetime, random
 
 data = []
 
+start_time = datetime.datetime(2019, 9, 28, 17, 29, 3, 191942)
+added_time = datetime.timedelta(0, 0, 500000)
+
 dict1 = {
     "UID": 1,
     "FNAME": "John",
     "LNAME": "Smith",
-    "TS": str(datetime.datetime.now()),
+    "TS": str(start_time),
     "LAT": 39.732431,
     "LON": -104.966825,
     "A_SUP": 100,
@@ -20,7 +23,7 @@ dict2 = {
     "UID": 2,
     "FNAME": "Mary",
     "LNAME": "Fletcher",
-    "TS": str(datetime.datetime.now()),
+    "TS": str(start_time),
     "LAT": 39.730431,
     "LON": -104.967825,
     "A_SUP": 100,
@@ -34,7 +37,7 @@ dict3 = {
     "UID": 3,
     "FNAME": "Jose",
     "LNAME": "Rodriguez",
-    "TS": str(datetime.datetime.now()),
+    "TS": str(start_time),
     "LAT": 39.731231,
     "LON": -104.965225,
     "A_SUP": 100,
@@ -48,7 +51,7 @@ dict4 = {
     "UID": 4,
     "FNAME": "Alice",
     "LNAME": "Jones",
-    "TS": str(datetime.datetime.now()),
+    "TS": str(start_time),
     "LAT": 39.732431,
     "LON": -104.966765,
     "A_SUP": 100,
@@ -62,7 +65,7 @@ dict5 = {
     "UID": 5,
     "FNAME": "Bill",
     "LNAME": "Collins",
-    "TS": str(datetime.datetime.now()),
+    "TS": str(start_time),
     "LAT": 39.732231,
     "LON": -104.967025,
     "A_SUP": 100,
@@ -79,20 +82,26 @@ data.append(dict3)
 data.append(dict4)
 data.append(dict5)
 
-start_time = datetime.datetime(2019, 9, 28, 17, 29, 3, 191942)
-added_time = datetime.timedelta(0, 0, 500000)
-dict1["TS"] = str(start_time)
-
+current_time = start_time + added_time
 for i in range(2000):
-    current_time = start_time + added_time
+    
+    current_time += added_time
+    #print(current_time)
+    #dict1 = {}
+    #dict2 = {}
+    #dict3 = {}
+    #dict4 = {}
+    #dict5 = {}
+
     dict1["TS"] = str(current_time)
-    if i % 1 == 0:
+    if i % 5 == 0:
         if dict1["HR"] < 75:
             dict1["HR"] += random.randrange(0, 2)
         elif dict1["HR"] < 160:
             dict1["HR"] += random.randrange(-1, 2)
         else:
             dict1["HR"] += random.randrange(-1, 1)
+        #print(dict1["HR"])
     if dict1["A_SUP"] > 0:
         if i % 20 == 0:
             dict1["A_SUP"] -= random.randrange(0, 2)
@@ -116,8 +125,15 @@ for i in range(2000):
             dict1["BP_S"] += random.randrange(-1, 2)
         else:
             dict1["BP_S"] += random.randrange(-1, 1)
+    #print(dict1)
     data.append(dict1)
-
+    for dict in data:
+        if dict["UID"] == 1:
+            print(dict)
+    if i > 1:
+        break
+    if i < 20:
+        print(data)
     dict2["TS"] = str(current_time)
     if i % 1 == 0:
         if dict2["HR"] < 75:
