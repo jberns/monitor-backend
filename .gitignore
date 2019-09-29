@@ -6,3 +6,4 @@
 .idea/workspace.xml
 static/socket.io.js
 templates/index.html
+server_log.txt
