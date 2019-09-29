@@ -4,3 +4,5 @@
 .idea/T2P-challenge-7-backend.iml
 .idea/vcs.xml
 .idea/workspace.xml
+static/socket.io.js
+templates/index.html

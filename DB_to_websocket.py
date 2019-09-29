@@ -17,10 +17,13 @@ def getDataSnapshot():
     conn = sql.connect("HeartLink_DB.db")
 
     conn.cursor()
+    for i in range(1, teamSize+1):
+        for record in conn.execute("SELECT * FROM FR_DATA WHERE UID=\'"
+                                + str(i) + "\' ORDER BY TS desc LIMIT 1;"):
 
-    for record in conn.execute("SELECT * FROM FR_DATA ORDER BY TS desc LIMIT " + str(teamSize) + ";"):
-
-        records.append(record)
+            records.append(record)
+        print("SELECT * FROM FR_DATA WHERE UID=\'"
+                                + str(i) + "\' ORDER BY TS desc LIMIT 1;")
 
     return records
 
