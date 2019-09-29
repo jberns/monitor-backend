@@ -7,3 +7,8 @@
 static/socket.io.js
 templates/index.html
 server_log.txt
+__pycache__/JSONtoSQLite.cpython-37.pyc
+__pycache__/json_to_python_dict.cpython-37.pyc
+__pycache__/DB_to_websocket.cpython-37.pyc
+__pycache__/DB_to_websocket.cpython-37.pyc
+HeartLink_DB.db-journal

@@ -1,23 +1,35 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_cors import CORS
 from flask_socketio import SocketIO
 from flask_socketio import emit
-import _thread
+import threading
 import JSONtoSQLite
 from DB_to_websocket import getDataSnapshot, serializeDataSnapshot
-log = open("server_log.txt", 'w')
+
+def getData():
+    thread = threading.Thread(target=JSONtoSQLite.data_ingest)
+    thread.start()
 
 app = Flask(__name__)
 CORS(app)
 app.config['SECRET_KEY'] = 'secret!'
+app.use_reloader=False
 socketio = SocketIO(app)
+
+@app.before_first_request
+def handle_startup():
+    getData()
+
+@app.route("/")
+def home():
+    return render_template('index.html')
 
 @socketio.on('request-crew-update')
 def handle_request_crew_update():
     data = serializeDataSnapshot(getDataSnapshot())
     emit("crew-update", data)
 
-_thread.start_new_thread(JSONtoSQLite.data_ingest())
+
 
 
 if __name__ == '__main__':

@@ -35,8 +35,6 @@ def serializeDataSnapshot(records):
             record_dict[columns[i]] = record[i]
         packet.append(js.dumps(record_dict))
 
-    print(packet)
-
     return packet
 
 data = getDataSnapshot()
