@@ -41,7 +41,7 @@ def data_ingest():
     list_o_dicts = json_to_python_dict.getDict('json_data.json')
     for curr_dict in list_o_dicts:
         i += 1
-        print(curr_dict)
+
         send_to_server(curr_dict)
         if i % 5 == 0:
             time.sleep(0.5)
