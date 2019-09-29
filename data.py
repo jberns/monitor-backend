@@ -81,11 +81,13 @@ data.append(dict2)
 data.append(dict3)
 data.append(dict4)
 data.append(dict5)
-tempDict = {}
 
+
+
+
+tempDict = {}
 current_time = start_time + added_time
 for i in range(2000):
-    
     current_time += added_time
 
     dict1["TS"] = str(current_time)
@@ -324,3 +326,8 @@ for i in range(2000):
 for i in range(5):
     data.remove(data[0])
 
+f = open('C:\\Users\\richie\\Documents\\GitHub\\T2P-challenge-7-backend\\demonstration_data', 'w')
+for dict_iteratable in data:
+    f.write(str(dict_iteratable))
+    f.write('\n')
+f.close()
