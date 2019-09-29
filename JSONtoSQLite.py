@@ -38,7 +38,7 @@ def send_to_server(input_dict):
 
 def data_ingest():
     i = 0
-    list_o_dicts = json_to_python_dict.getDict('C:\\Users\\richie\\Documents\\GitHub\\T2P-challenge-7-backend\\json_data.json')
+    list_o_dicts = json_to_python_dict.getDict('json_data.json')
     for curr_dict in list_o_dicts:
         i += 1
         print(curr_dict)

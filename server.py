@@ -3,6 +3,7 @@ from flask_cors import CORS
 from flask_socketio import SocketIO
 from flask_socketio import emit
 import _thread
+import JSONtoSQLite
 from DB_to_websocket import getDataSnapshot, serializeDataSnapshot
 log = open("server_log.txt", 'w')
 
@@ -16,7 +17,7 @@ def handle_request_crew_update():
     data = serializeDataSnapshot(getDataSnapshot())
     emit("crew-update", data)
 
-#_thread.start_new_thread()
+_thread.start_new_thread(JSONtoSQLite.data_ingest())
 
 
 if __name__ == '__main__':
